@@ -1,23 +1,22 @@
-<!DOCCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Address - View All</title>
+    <title> Address - View All</title>
 </head>
 <body>
-<h1>Address</h1>
+        <h1><a href="/address/add">Add New Address</a> <br/></h1>
 
 <table border="1">
+    <tr><th>Street</th><th>Zip Code</th><th>Actions</th></tr>
+    <% for(var i = 0; i < addresses.length; i++) { %>
     <tr>
-        <th>ID</th>
-        <th>Street</th>
-        <th>ZipCode</th>
-    </tr>
-    <% for(var i = 0; i < address.length; i++) { %>
-    <tr>
-        <td><%= address[i].address_id %></td>
-        <td><%= address[i].street %></td>
-        <td><%= address[i].zip_code %></td>
-    </tr>
+        <td><%= addresses[i].street %></td>
+        <td><%= addresses[i].zip_code %></td>
+        <td>
+            <a href='/address/edit/?address_id=<%= addresses[i].address_id %>'>
+             Edit
+            </a>
+         </tr>
     <% } %>
 </table>
 

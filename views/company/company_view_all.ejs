@@ -4,17 +4,23 @@
     <title>Company - View All</title>
 </head>
     <body>
-        <h1>Companies</h1>
+        <h1><a href="/company/add">Add New Company</a> <br /></h1>
 
         <table border="1">
-            <tr>
-                <th>ID</th>
-                <th>NAME</th>
+            <tr><th>Name</th>
+                <th>Actions</th>
             </tr>
-            <% for(var i=0; i < companies.length; i++) { %>
+            <% for(var i=0; companies.length > i; i++) { %>
                 <tr>
-                    <td><%= companies[i].company_id %></td>
-                    <td><%= companies[i].company_name %></td>
+                    <td><a href="/company/?company_id=<%= companies[i].company_id %>">
+                        <%= companies[i].company_name %>
+                        </a>
+                    </td>
+                    <td>
+                    <a href='/company/edit/?company_id=<%= companies[i].company_id %>'>
+                        Edit
+                        </a>
+                    </td>
                 </tr>
             <% }%>
         </table>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Resume - View All</title>
+</head>
+    <body>
+        <h1><a href="/resume/selectuser">Add Resume</a> <br/></h1>
+
+        <table border="1">
+            <tr><th>First Name</th><th>Last Name</th><th>Resume Name</th><th>Actions</th></tr>
+            <% for(var i=0; resume.length > i; i++ ) { %>
+            <tr>
+                        <td><%= resume[i].first_name %></td>
+                        <td><%= resume[i].last_name %></td>
+                        <td> <%= resume[i].resume_name %></td>
+                    </a>
+                <td>
+                    <a href='/resume/edit/?resume_id=<%= resume[i].resume_id %>'>
+                        Edit
+                    </a>
+                </td>
+            </tr>
+            <% } %>
+        </table>
+    </body>
+</html>

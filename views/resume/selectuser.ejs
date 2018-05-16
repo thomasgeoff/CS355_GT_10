@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> User - Select </title>
+    </head>
+    <body>
+        <h1> Select User </h1>
+        <form action="/resume/add" method="get">
+            <br />
+            User
+            <select name="account_id">
+            <br />
+            <% for(var i=0; account_result.length > i; i++) { %>
+                <option value="<%=
+                account_result[i].account_id %>"> <%= account_result[i].first_name %>
+                <%= account_result[i].last_name %></option>
+                    <br />
+                   <% } %>
+
+                   <br />
+            <input type = "submit"/>
+        </form>
+    </body>
+</html>

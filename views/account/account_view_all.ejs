@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title> Account - View ALL</title>
+    <title> Account - View All</title>
 </head>
     <body>
+        <h1><a href="/account/add">Add New Account</a> <br/></h1>
+
         <table border="1">
+            <tr><th>First Name</th><th>Last Name</th><th>Email</th><th>Actions</th></tr>
+            <% for(var i=0; account.length > i; i++ ) { %>
             <tr>
-                <th>Id</th>
-                <th>Email</th>
-                <th>First_Name</th>
-                <th>Last_Name</th>
-            </tr>
-            <% for(var i=0; i < account.length; i++) { %>
-            <tr>
-                <td><%= account[i].account_id %></td>
-                <td><%= account[i].email %></td>
                 <td><%= account[i].first_name %></td>
                 <td><%= account[i].last_name %></td>
+                <td><%= account[i].email %></td>
+                <td>
+                    <a href='/account/edit/?account_id=<%= account[i].account_id %>'>
+                        Edit
+                    </a>
+                </td>
             </tr>
             <% } %>
         </table>
-
     </body>
 </html>

@@ -5,7 +5,7 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('cs355-gt-lab7:server');
+var debug = require('debug')('cs355-mkg:server');
 var http = require('http');
 
 /**

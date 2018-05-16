@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Skills - View All</title>
+</head>
+<body>
+    <h1><a href="/skills/add">Add New Skill</a> <br/></h1>
+
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Actions</th>
+    </tr>
+    <% for(var i = 0; i < skills.length; i++) { %>
+    <tr>
+        <td><%= skills[i].skill_name %></td>
+        <td><%= skills[i].description %></td>
+        <td>
+            <a href='/skills/edit/?skill_id=<%= skills[i].skill_id %>'>
+             Edit
+    </tr>
+    <% } %>
+</table>
+
+</body>
+</html>

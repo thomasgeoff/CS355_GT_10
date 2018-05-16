@@ -1,63 +1,61 @@
 var express = require('express');
 var router = express.Router();
-var account_dal = require('../dal/account_dal');
+var skills_dal = require('../dal/skills_dal');
 
-/* GET users listing. */
-router.get ('/all', function(req, res, next) {
-    account_dal.getAll(function(err,result) {
+/* GET USERS LISTING */
+router.get('/all', function(req, res, next) {
+    skills_dal.getAll(function(err, result){
         if (err) {
             console.log(err);
             res.send(err);
         } else {
             console.log(result);
-            res.render('account/account_view_all', {account: result});
+            res.render('skills/skills_view_all', {skills: result[0
+                    ]});
         }
     })
 });
 
-router.get('/add', function(req, res) {
-    res.render('account/account_add');
-
+router.get('/add/', function(req,res) {
+    res.render('skills/skills_add');
 });
 
-router.get('/insert', function(req, res) {
-
-    account_dal.insert(req.query, function(err,result) {
+router.get('/insert', function(req,res) {
+    skills_dal.insert(req.query, function(err,result) {
         if (err) {
             console.log(err);
             res.send(err);
         }
         else {
-            res.redirect(302, '/account/all');
+            res.redirect(302, '/skills/all');
         }
     });
 });
 
 router.get('/edit', function(req, res) {
-    account_dal.getinfo(req.query.account_id, function(err,result) {
+    skills_dal.getinfo(req.query.skill_id, function(err,result) {
         if (err) {
             console.log(err);
             res.send(err);
         }
         else {
             console.log(result);
-            res.render('account/accountUpdate', {account:
+            res.render('skills/skillsUpdate', {skills:
                     result[0][0]});
         }
     });
 });
 
 router.get('/update', function(req, res) {
-    account_dal.update(req.query, function(err, result) {
+    skills_dal.update(req.query, function(err, result) {
         if (err) {
             res.send(err);
         }
         else {
             console.log(result);
-            res.redirect(302, '/account/all');
+            res.redirect(302, '/skills/all');
         }
     });
 });
-
 
 module.exports = router;
