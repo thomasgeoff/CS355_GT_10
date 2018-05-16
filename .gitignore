@@ -1,4 +1,4 @@
-model/db_connection.js
+dal/db_connection.js
 node_modules
 .idea
-*.imlg
+*.iml
